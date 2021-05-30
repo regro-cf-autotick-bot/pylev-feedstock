@@ -1,22 +1,19 @@
 {% set name = "pylev" %}
-{% set version = "1.3.0" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "063910098161199b81e453025653ec53556c1be7165a9b7c50be2f4d57eae1c3" %}
+{% set version = "1.4.0" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 9e77e941042ad3a4cc305dcdf2b2dec1aec2fbe3dd9015d2698ad02b173006d1
 
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -34,9 +31,8 @@ about:
   license: BSD
   license_family: BSD
   license_file: LICENSE
-  summary: "A pure Python Levenshtein implementation that's not freaking GPL'd."
-  description: "A pure Python Levenshtein implementation that's not freaking GPL'd. 
-    Based off the Wikipedia code samples at http://en.wikipedia.org/wiki/Levenshtein_distance."
+  summary: A pure Python Levenshtein implementation that's not freaking GPL'd.
+  description: A pure Python Levenshtein implementation that's not freaking GPL'd. Based off the Wikipedia code samples at http://en.wikipedia.org/wiki/Levenshtein_distance.
   doc_url: https://pypi.org/project/pylev/
   dev_url: https://github.com/toastdriven/pylev
 
