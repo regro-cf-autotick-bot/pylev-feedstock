@@ -28,7 +28,7 @@ test:
 
 about:
   home: http://github.com/toastdriven/pylev
-  license: BSD
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: A pure Python Levenshtein implementation that's not freaking GPL'd.
